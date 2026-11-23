@@ -1,0 +1,565 @@
+{
+  "id": "japan2027",
+  "title": "JAPAN TRIP 2027",
+  "subtitle": "Hokkaido · Fuji · Tokyo | Itinerary",
+  "departureDate": "2027-01-03",
+  "jpyPerMyr": 39,
+  "days": [
+    {
+      "label": "Day 1 · Asahikawa / Biei",
+      "activities": [
+        {
+          "time": "08:15",
+          "name": "Arrival",
+          "notes": ""
+        },
+        {
+          "time": "09:30",
+          "name": "Go to JR counter to redeem JR pass",
+          "notes": ""
+        },
+        {
+          "time": "",
+          "name": "Take rapid airport train to sapporo station",
+          "notes": ""
+        },
+        {
+          "time": "",
+          "name": "Breakfast//must arrive at sapporo station by 10.15am",
+          "notes": "Eat maggie or Kembara food"
+        },
+        {
+          "time": "11:00",
+          "name": "Take lilac-kamui to Asahikawa station",
+          "notes": "get reserved seat; boleh makan dalam train ni"
+        },
+        {
+          "time": "12:30",
+          "name": "Get rental car",
+          "notes": "500m from station"
+        },
+        {
+          "time": "",
+          "name": "Pray before start journey",
+          "notes": "or can pray at zoo"
+        },
+        {
+          "time": "14:00",
+          "name": "Asahiyama Zoo",
+          "notes": "penguin walk starts 2.30pm",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Asahiyama+Zoo"
+        },
+        {
+          "time": "",
+          "name": "Shirogane Biruke (optional)",
+          "notes": "rest area/souvenir shop",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Shirogane+Biruke"
+        },
+        {
+          "time": "17:15",
+          "name": "Blue Pond Illumination",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Blue+Pond+Illumination"
+        },
+        {
+          "time": "",
+          "name": "Check in&rest",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "label": "Day 2 · Biei / Furano",
+      "activities": [
+        {
+          "time": "08:30",
+          "name": "Seven Stars Tree",
+          "notes": "Photo checkpoint",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Seven+Stars+Tree"
+        },
+        {
+          "time": "",
+          "name": "Mild Seven Hill viewpoint",
+          "notes": "Photo checkpoint",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Mild+Seven+Hill+viewpoint"
+        },
+        {
+          "time": "",
+          "name": "Ken & Mary Tree (optional)",
+          "notes": "Photo checkpoint",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Ken+%26+Mary+Tree"
+        },
+        {
+          "time": "",
+          "name": "shisikai no oka",
+          "notes": "Snow mobile/Snowrafting; 1,800yen",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=shisikai+no+oka"
+        },
+        {
+          "time": "",
+          "name": "Shirahige Falls",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Shirahige+Falls"
+        },
+        {
+          "time": "",
+          "name": "lunch at nepal dining",
+          "notes": ""
+        },
+        {
+          "time": "",
+          "name": "Farm Tomita",
+          "notes": "ada prayer room;close at 4pm",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Farm+Tomita"
+        },
+        {
+          "time": "",
+          "name": "furano kan kan mura (optional)",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=furano+kan+kan+mura"
+        },
+        {
+          "time": "",
+          "name": "Ningle Terrace (optional)",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Ningle+Terrace"
+        },
+        {
+          "time": "17:00",
+          "name": "Balik",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "label": "Day 3 · Asahikawa → Sapporo",
+      "activities": [
+        {
+          "time": "09:30",
+          "name": "check out",
+          "notes": ""
+        },
+        {
+          "time": "",
+          "name": "Photo checkpoint",
+          "notes": ""
+        },
+        {
+          "time": "11:00",
+          "name": "Asahiyama Zoo(if tak sempat day1)",
+          "notes": "penguin parade is at 11.30am",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Asahiyama+Zoo%28if+tak+sempat+day1%29"
+        },
+        {
+          "time": "",
+          "name": "Pray at Masjid Nusantara Asahikawa",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Pray+at+Masjid+Nusantara+Asahikawa"
+        },
+        {
+          "time": "",
+          "name": "Drop bag at Asahikawa Station",
+          "notes": ""
+        },
+        {
+          "time": "13:30",
+          "name": "return car",
+          "notes": "Times Car Rental"
+        },
+        {
+          "time": "",
+          "name": "Asahikawa station",
+          "notes": "Back to sapporo",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Asahikawa+station"
+        },
+        {
+          "time": "",
+          "name": "Check In",
+          "notes": ""
+        },
+        {
+          "time": "",
+          "name": "Eat at Gyumon",
+          "notes": "Arrive before 4pm"
+        },
+        {
+          "time": "",
+          "name": "Explore Susukino Area+Tanukikoji shopping district",
+          "notes": ""
+        },
+        {
+          "time": "18:00",
+          "name": "Rehat secukupnya",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Rehat+secukupnya"
+        }
+      ]
+    },
+    {
+      "label": "Day 4 · Otaru / Sapporo",
+      "activities": [
+        {
+          "time": "07:30",
+          "name": "Leave early",
+          "notes": ""
+        },
+        {
+          "time": "09:00",
+          "name": "Photo Spot at Asari Station",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Photo+Spot+at+Asari+Station"
+        },
+        {
+          "time": "",
+          "name": "Stop at Minami-Otaru station",
+          "notes": ""
+        },
+        {
+          "time": "",
+          "name": "Otaru Steam Clock",
+          "notes": "&music box museum",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Otaru+Steam+Clock"
+        },
+        {
+          "time": "",
+          "name": "Sakaimachi street(optional)",
+          "notes": "Le Tao&Royce Shop",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Sakaimachi+street"
+        },
+        {
+          "time": "",
+          "name": "Snoppy Cha-Ya",
+          "notes": "Photo Stop",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Snoppy+Cha-Ya"
+        },
+        {
+          "time": "",
+          "name": "Miffy Cafe Otaru",
+          "notes": "Souvenir",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Miffy+Cafe+Otaru"
+        },
+        {
+          "time": "14:00",
+          "name": "Eat&Pray at Donburi Cahaya",
+          "notes": "11.30am-3.30pm"
+        },
+        {
+          "time": "",
+          "name": "Otaru Canal",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Otaru+Canal"
+        },
+        {
+          "time": "",
+          "name": "Otaru Station",
+          "notes": "walk/take taxi from otaru canal",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Otaru+Station"
+        },
+        {
+          "time": "15:45",
+          "name": "Mt. Moiwa Ropeway",
+          "notes": "if tak sempat pergi esok pagi",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Mt.+Moiwa+Ropeway"
+        }
+      ]
+    },
+    {
+      "label": "Day 5 · Sapporo → Fuji",
+      "activities": [
+        {
+          "time": "09:00",
+          "name": "Check out",
+          "notes": ""
+        },
+        {
+          "time": "10:15",
+          "name": "Mt Moiwa Ropeway",
+          "notes": "Open at 10.10a,",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Mt+Moiwa+Ropeway"
+        },
+        {
+          "time": "12:00",
+          "name": "Take train to CTS airport",
+          "notes": ""
+        },
+        {
+          "time": "16:30",
+          "name": "Flight to Haneda",
+          "notes": ""
+        },
+        {
+          "time": "18:30",
+          "name": "Arrive at haneda",
+          "notes": ""
+        },
+        {
+          "time": "21:15",
+          "name": "Haneda to Shinjuku Station to Fuji",
+          "notes": ""
+        },
+        {
+          "time": "23:30",
+          "name": "Arrive at Fuji",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "label": "Day 6 · Mount Fuji",
+      "activities": [
+        {
+          "time": "09:00",
+          "name": "pickup rent car",
+          "notes": ""
+        },
+        {
+          "time": "10:00",
+          "name": "Arakurayama Sengen Park; Chureito Pagoda",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Arakurayama+Sengen+Park%3B+Chureito+Pagoda"
+        },
+        {
+          "time": "11:30",
+          "name": "Shimoyoshida Honcho Street",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Shimoyoshida+Honcho+Street"
+        },
+        {
+          "time": "",
+          "name": "Fujikawaguchiko Masjid",
+          "notes": "Prayer&Lunch",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Fujikawaguchiko+Masjid"
+        },
+        {
+          "time": "",
+          "name": "Fuji-Q Highland",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Fuji-Q+Highland"
+        },
+        {
+          "time": "",
+          "name": "Oishi Park",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Oishi+Park"
+        },
+        {
+          "time": "17:00",
+          "name": "Balik Rehat",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "label": "Day 7 · Fuji → Tokyo",
+      "activities": [
+        {
+          "time": "06:00",
+          "name": "Jalan-jalan ambik gambar",
+          "notes": ""
+        },
+        {
+          "time": "08:00",
+          "name": "return car",
+          "notes": ""
+        },
+        {
+          "time": "09:00",
+          "name": "wait for train",
+          "notes": ""
+        },
+        {
+          "time": "12:00",
+          "name": "Arrive at Shinjuku station",
+          "notes": ""
+        },
+        {
+          "time": "",
+          "name": "Store luggage at shinjuku station",
+          "notes": "at west side/Sagawa@BUsta Shinjuku 3F"
+        },
+        {
+          "time": "",
+          "name": "Takeshita street",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Takeshita+street"
+        },
+        {
+          "time": "",
+          "name": "Cat Street",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Cat+Street"
+        },
+        {
+          "time": "",
+          "name": "Miyashita Park",
+          "notes": "Walking distance",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Miyashita+Park"
+        },
+        {
+          "time": "",
+          "name": "Shibuya Parco",
+          "notes": "Pray",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Shibuya+Parco"
+        },
+        {
+          "time": "",
+          "name": "Shibuya Crossing",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Shibuya+Crossing"
+        },
+        {
+          "time": "",
+          "name": "Lunch at Gyumon",
+          "notes": ""
+        },
+        {
+          "time": "",
+          "name": "Back to shinjuku",
+          "notes": ""
+        },
+        {
+          "time": "",
+          "name": "check in homestay",
+          "notes": ""
+        },
+        {
+          "time": "",
+          "name": "rest",
+          "notes": ""
+        },
+        {
+          "time": "",
+          "name": "tokyo tower night view",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=tokyo+tower+night+view"
+        }
+      ]
+    },
+    {
+      "label": "Day 8 · Kamakura / Tokyo",
+      "activities": [
+        {
+          "time": "07:00",
+          "name": "Train to Kamakura",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Train+to+Kamakura"
+        },
+        {
+          "time": "",
+          "name": "Take Enoden Line",
+          "notes": ""
+        },
+        {
+          "time": "",
+          "name": "Take picture at beach",
+          "notes": ""
+        },
+        {
+          "time": "",
+          "name": "Eat breakfast/lunch at Kajiya",
+          "notes": ""
+        },
+        {
+          "time": "14:00",
+          "name": "Back to Tokyo",
+          "notes": ""
+        },
+        {
+          "time": "",
+          "name": "Akihabara",
+          "notes": "",
+          "mapUrl": "https://www.google.com/maps/search/?api=1&query=Akihabara"
+        }
+      ]
+    },
+    {
+      "label": "Day 9 · Tokyo",
+      "activities": [
+        {
+          "time": "10:30",
+          "name": "Check out",
+          "notes": "Before 11"
+        },
+        {
+          "time": "",
+          "name": "Stroll around asakusa",
+          "notes": ""
+        },
+        {
+          "time": "",
+          "name": "Souvenir shopping at asakusa",
+          "notes": ""
+        },
+        {
+          "time": "",
+          "name": "More shopping at Ueno Street",
+          "notes": ""
+        },
+        {
+          "time": "",
+          "name": "Lepak",
+          "notes": ""
+        },
+        {
+          "time": "19:00",
+          "name": "Head to Haneda airport",
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "label": "Day 10 · Kuala Lumpur",
+      "activities": [
+        {
+          "time": "08:15",
+          "name": "Arrive at Kuala Lumpur",
+          "notes": ""
+        }
+      ]
+    }
+  ],
+  "packing": [
+    "Passport",
+    "International Driver License",
+    "Physical Driver License",
+    "Travel insurance",
+    "Phone charger",
+    "Power adapter",
+    "Snow boot",
+    "Medication",
+    "Hot pack",
+    "Power Bank",
+    "DJI Osmo/Nano",
+    "Soft copy of hotel/car rental bookings"
+  ],
+  "bookings": [
+    {
+      "label": "Flight 1 · Kuala Lumpur → Sapporo",
+      "details": "3 Jan 2027 | AirAsia D7 550 | KUL → CTS | Departure: 12:20 AM (MYT) | Arrival: 7:55 AM (JST)"
+    },
+    {
+      "label": "Hotel 1 · Biei, Hokkaido",
+      "details": "Check-in: 3 Jan 2027 | Check-out: 5 Jan 2027 | Address: 1-chome-3-35 Saiwaicho, Biei, Kamikawa District, Hokkaido 071-0214, Japan"
+    },
+    {
+      "label": "Hotel 2 · Sapporo, Hokkaido",
+      "details": "Check-in: 5 Jan 2027 | Check-out: 7 Jan 2027 | Address: 6-chome-1-22 Kita 10 Johigashi, Higashi Ward, Sapporo, Hokkaido 065-0010, Japan"
+    },
+    {
+      "label": "Flight 2 · Sapporo → Tokyo",
+      "details": "7 Jan 2027 | ANA NH 70 | CTS → HND | Departure: 3:30 PM (JST) | Arrival: 5:15 PM (JST)"
+    },
+    {
+      "label": "Hotel 3 · Fujikawaguchiko, Yamanashi",
+      "details": "Check-in: 7 Jan 2027 | Check-out: 9 Jan 2027 | Address: 970 Funatsu, Fujikawaguchiko, Minamitsuru District, Yamanashi 401-0301, Japan"
+    },
+    {
+      "label": "Hotel 4 · Taito, Tokyo",
+      "details": "Check-in: 9 Jan 2027 | Check-out: 11 Jan 2027 | Address: 4-chome-15-3 Taito, Taito City, Tokyo 110-0016, Japan"
+    },
+    {
+      "label": "Flight 3 · Tokyo → Kuala Lumpur",
+      "details": "12 Jan 2027 | AirAsia D7 523 | HND → KUL | Departure: 10:55 PM (JST) | Arrival: 6:50 AM (MYT, 13 Jan 2027)"
+    }
+  ]
+}
