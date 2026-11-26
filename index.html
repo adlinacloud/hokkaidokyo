@@ -1,2 +1,194 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>My Travel Journal</title><style>:root{font-family:system-ui,Arial,sans-serif;color:#21312e;background:#f6f8f5}body{margin:0}header{background:linear-gradient(120deg,#194b43,#4c8679);color:white;padding:48px 7%}h1{font-size:clamp(2rem,5vw,4rem);margin:.3em 0}main{max-width:1100px;margin:auto;padding:25px}section{background:white;border-radius:18px;padding:22px;margin:18px 0;box-shadow:0 3px 15px #0001}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.item{border:1px solid #dce7e2;border-radius:12px;padding:14px}button,a.button{background:#1e6659;color:white;border:0;border-radius:9px;padding:10px 14px;cursor:pointer;text-decoration:none;display:inline-block}input,select{padding:10px;border:1px solid #cddbd4;border-radius:8px;max-width:100%}.muted{color:#60736b}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}label{display:block;margin:8px 0}#days button{margin:4px}#days button.active{background:#edaa5b;color:#202b27}</style></head><body><header><p>✈ YOUR TRAVEL COMPANION</p><h1 id="title"></h1><p id="subtitle"></p><strong id="countdown"></strong></header><main><section><h2>🗓 Daily itinerary</h2><div id="days"></div><div id="activities" class="grid"></div></section><section><h2>💰 Budget planner</h2><p class="muted">Change the exchange rate or add expenses. Expenses are saved in this browser only.</p><div class="row"><label>JPY per MYR <input id="rate" type="number" min="0.01" step="0.01" value="35"></label><label>Expense (JPY) <input id="amount" type="number" min="0" placeholder="e.g. 1500"></label><label>Category <input id="category" placeholder="Food / transport"></label><button id="add">Add expense</button></div><p id="total"></p><div id="expenses"></div></section><section><h2>🧳 Packing checklist</h2><div id="packing"></div></section><section><h2>🏨 Stay & transport</h2><div id="bookings" class="grid"></div></section><p class="muted">Starter website · Edit trip-data.json to customize · No account required</p></main><script>
-let trip;let selected=0;const $=id=>document.getElementById(id);const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const localKey=s=>'trip-'+(trip?.id||'default')+'-'+s;const read=(k,fallback)=>{try{return JSON.parse(localStorage.getItem(localKey(k)))??fallback}catch{return fallback}};const save=(k,v)=>localStorage.setItem(localKey(k),JSON.stringify(v));function renderDays(){ $('days').innerHTML=trip.days.map((d,i)=>`<button class="${i===selected?'active':''}" data-day="${i}">${safe(d.label)}</button>`).join('');$('activities').innerHTML=(trip.days[selected]?.activities||[]).map(a=>`<div class="item"><strong>${safe(a.time)} · ${safe(a.name)}</strong><p>${safe(a.notes)}</p>${a.mapUrl&&/^https:\/\/(www\.)?google\.(com|co\.[a-z]+)\/maps\//.test(a.mapUrl)?`<a class="button" target="_blank" rel="noopener noreferrer" href="${safe(a.mapUrl)}">Open map ↗</a>`:''}</div>`).join('');document.querySelectorAll('[data-day]').forEach(b=>b.onclick=()=>{selected=Number(b.dataset.day);renderDays()})}function renderBudget(){const list=read('expenses',[]);const rate=Number($('rate').value)||35;const total=list.reduce((n,e)=>n+e.amount,0);$('total').textContent=`Total: ¥${total.toLocaleString()} ≈ RM ${(total/rate).toFixed(2)}`;$('expenses').innerHTML=list.map((e,i)=>`<div class="row item"><span>${safe(e.category)}: ¥${e.amount.toLocaleString()}</span><button data-remove="${i}">Remove</button></div>`).join('');document.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>{list.splice(Number(b.dataset.remove),1);save('expenses',list);renderBudget()})}function renderPacking(){const checked=read('packing',{});$('packing').innerHTML=trip.packing.map((p,i)=>`<label><input type="checkbox" data-pack="${i}" ${checked[i]?'checked':''}> ${safe(p)}</label>`).join('');document.querySelectorAll('[data-pack]').forEach(c=>c.onchange=()=>{checked[c.dataset.pack]=c.checked;save('packing',checked)})}async function init(){try{const res=await fetch('./trip-data.json');if(!res.ok)throw Error('Missing trip-data.json');trip=await res.json();$('title').textContent=trip.title;$('subtitle').textContent=trip.subtitle;const days=Math.ceil((new Date(trip.departureDate+'T00:00:00')-new Date())/86400000);$('countdown').textContent=days>0?`${days} days until departure`:days===0?'Departure day!':'Your trip has begun or passed';$('bookings').innerHTML=trip.bookings.map(b=>`<div class="item"><strong>${safe(b.label)}</strong><p>${safe(b.details)}</p></div>`).join('');$('rate').value=read('rate',trip.jpyPerMyr||35);$('rate').oninput=()=>{save('rate',Number($('rate').value));renderBudget()};$('add').onclick=()=>{const amount=Number($('amount').value);if(!Number.isFinite(amount)||amount<=0)return alert('Enter an amount greater than zero');const list=read('expenses',[]);list.push({amount,category:$('category').value||'Other'});save('expenses',list);$('amount').value='';renderBudget()};renderDays();renderBudget();renderPacking()}catch(e){$('title').textContent='Unable to load trip data';$('subtitle').textContent=e.message+' — publish both files together using a local web server or Netlify.'}}init();</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Japan Trip 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ===== 1. COLOURS & FONT: change these to restyle the whole page ===== */
+:root{
+  --bg:#f4f7fb; --card:#ffffff; --text:#14213d; --muted:#5d6b85;
+  --accent:#2f6f5e; --accent-soft:#dcefe9; --line:#dde4ef;
+  --hero1:#14213d; --hero2:#3b5b8c;
+  --font:"Zen Maru Gothic","Hiragino Sans","Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0e1522;--card:#17213a;--text:#eaf0fb;--muted:#9fb0cf;--accent:#6fd0b4;--accent-soft:#1d3a39;--line:#2a3857}
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.5;padding-bottom:84px}
+.hero{background:linear-gradient(160deg,var(--hero1),var(--hero2));color:#fff;padding:calc(env(safe-area-inset-top,0px) + 36px) 20px 28px;text-align:center}
+.hero h1{margin:0;font-size:2rem;letter-spacing:.04em}
+.hero p{margin:6px 0 18px;opacity:.85}
+.cd{display:flex;gap:10px;justify-content:center}
+.cd div{background:rgba(255,255,255,.14);border-radius:14px;padding:10px 0;width:68px}
+.cd b{display:block;font-size:1.5rem}.cd span{font-size:.72rem;opacity:.8}
+main{max-width:720px;margin:0 auto;padding:16px}
+section{display:none}section.on{display:block}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}
+.chip{flex:none;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:999px;padding:8px 14px;font:inherit;font-size:.85rem;cursor:pointer}
+.chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+input[type=search],input[type=number]{width:100%;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;margin-bottom:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:14px}
+.banner{height:170px;background-size:cover;background-position:center;display:flex;align-items:flex-end;color:#fff;padding:14px;font-weight:700;font-size:1.15rem;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.bar{height:6px;background:var(--line)}.bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.act{display:flex;gap:12px;padding:12px 14px;border-top:1px solid var(--line);align-items:flex-start}
+.act input{margin-top:5px;width:18px;height:18px;accent-color:var(--accent);flex:none}
+.act .t{min-width:46px;color:var(--accent);font-weight:700;font-size:.85rem;padding-top:2px}
+.act .n{flex:1}.act small{display:block;color:var(--muted)}
+.act.done .n b{text-decoration:line-through;opacity:.5}
+.map{flex:none;text-decoration:none;font-size:.8rem;background:var(--accent-soft);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:700}
+.meta{padding:12px 14px;color:var(--muted);font-size:.9rem}
+.bk b{display:block}.bk{padding:14px}.bk p{margin:4px 0 0;color:var(--muted);font-size:.9rem}
+.tool{padding:16px}.tool h3{margin:0 0 10px}
+.row{display:flex;gap:10px;align-items:center}.row>*{flex:1}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+nav button{flex:1;border:0;background:none;color:var(--muted);padding:10px 0;font:inherit;font-size:.75rem;cursor:pointer}
+nav button.on{color:var(--accent);font-weight:700}
+nav button span{display:block;font-size:1.3rem}
+.empty{text-align:center;color:var(--muted);padding:30px}
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1 id="title">Japan Trip</h1>
+  <p id="sub"></p>
+  <div class="cd" id="cd"></div>
+</header>
+<main>
+  <section id="plan" class="on">
+    <input type="search" id="q" placeholder="Search the itinerary (e.g. zoo, pray, Gyumon)">
+    <div class="chips" id="chips"></div>
+    <div id="day"></div>
+  </section>
+  <section id="book"></section>
+  <section id="pack"></section>
+  <section id="tools"></section>
+</main>
+<nav id="nav">
+  <button data-s="plan" class="on"><span>🗓️</span>Plan</button>
+  <button data-s="book"><span>🎫</span>Bookings</button>
+  <button data-s="pack"><span>🎒</span>Packing</button>
+  <button data-s="tools"><span>💴</span>Tools</button>
+</nav>
+<script>
+/* ===== 2. PHOTOS: one picture per day. Put files in an "images" folder.
+   If a file is missing the banner just shows a colour gradient. ===== */
+const DAY_IMAGES = [
+  "images/day1.jpg","images/day2.jpg","images/day3.jpg","images/day4.jpg","images/day5.jpg",
+  "images/day6.jpg","images/day7.jpg","images/day8.jpg","images/day9.jpg","images/day10.jpg"
+];
+/* Fallback banner colours (shown when a photo is missing) */
+const GRADS = ["#3b5b8c,#8fb8de","#2f6f5e,#9ad1bf","#7a5c8c,#d6b6e6","#2b6f8c,#9fd8ec","#8c5b3b,#e6b78f"];
+
+const $ = s => document.querySelector(s);
+const store = {
+  get(k){ try{ return JSON.parse(localStorage.getItem(k)) || {} }catch(e){ return {} } },
+  set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)) }catch(e){} }
+};
+let TRIP, cur = 0, ticks = store.get("ticks"), packed = store.get("packed");
+
+fetch("trip.json").then(r => r.json()).then(init).catch(() => {
+  $("#day").innerHTML = '<div class="empty">Could not load trip.json. Make sure it sits next to index.html and you are opening the page through GitHub Pages (not by double-clicking the file).</div>';
+});
+
+function init(d){
+  TRIP = d;
+  document.title = d.title; $("#title").textContent = d.title; $("#sub").textContent = d.subtitle;
+  // open on today's day if the trip is happening now
+  const dayNo = Math.floor((Date.now() - new Date(d.departureDate + "T00:00:00+08:00")) / 864e5);
+  if (dayNo >= 0 && dayNo < d.days.length) cur = dayNo;
+  buildChips(); renderDay(); renderBookings(); renderPacking(); renderTools();
+  countdown(); setInterval(countdown, 1000);
+}
+
+function dateOf(i){
+  const t = new Date(TRIP.departureDate + "T00:00:00"); t.setDate(t.getDate() + i);
+  return t.toLocaleDateString("en-GB",{day:"numeric",month:"short"});
+}
+function buildChips(){
+  $("#chips").innerHTML = TRIP.days.map((d,i) =>
+    `<button class="chip ${i===cur?"on":""}" data-i="${i}">Day ${i+1} · ${dateOf(i)}</button>`).join("");
+  document.querySelectorAll(".chip").forEach(b => b.onclick = () => { cur = +b.dataset.i; $("#q").value=""; buildChips(); renderDay(); });
+}
+function banner(d,i){
+  const img = d.img || DAY_IMAGES[i], g = GRADS[i % GRADS.length];
+  return `background-image:url('${img}'),linear-gradient(135deg,${g})`;
+}
+function actHTML(a,di,ai){
+  const k = di+"-"+ai, done = ticks[k];
+  return `<div class="act ${done?"done":""}">
+    <input type="checkbox" data-k="${k}" ${done?"checked":""} aria-label="Done">
+    <div class="t">${a.time||""}</div>
+    <div class="n"><b>${a.name}</b>${a.notes?`<small>${a.notes}</small>`:""}</div>
+    ${a.mapUrl?`<a class="map" href="${a.mapUrl}" target="_blank" rel="noopener">Map</a>`:""}
+  </div>`;
+}
+function renderDay(){
+  const q = $("#q").value.trim().toLowerCase();
+  if (q){
+    let out = "";
+    TRIP.days.forEach((d,di) => d.activities.forEach((a,ai) => {
+      if ((a.name+" "+a.notes).toLowerCase().includes(q)) out += `<div class="card"><div class="meta">${d.label}</div>${actHTML(a,di,ai)}</div>`;
+    }));
+    $("#day").innerHTML = out || '<div class="empty">Nothing found.</div>';
+    bindTicks(); return;
+  }
+  const d = TRIP.days[cur];
+  $("#day").innerHTML = `<div class="card">
+    <div class="banner" style="${banner(d,cur)}">${d.label}</div>
+    <div class="bar"><i id="prog"></i></div>
+    ${d.activities.map((a,ai) => actHTML(a,cur,ai)).join("")}
+  </div>`;
+  bindTicks(); progress();
+}
+function bindTicks(){
+  document.querySelectorAll(".act input").forEach(c => c.onchange = () => {
+    ticks[c.dataset.k] = c.checked; store.set("ticks", ticks);
+    c.closest(".act").classList.toggle("done", c.checked); progress();
+  });
+}
+function progress(){
+  const p = $("#prog"); if (!p) return;
+  const n = TRIP.days[cur].activities.length;
+  const done = TRIP.days[cur].activities.filter((_,i) => ticks[cur+"-"+i]).length;
+  p.style.width = (done/n*100) + "%";
+}
+$("#q").oninput = renderDay;
+
+function renderBookings(){
+  $("#book").innerHTML = TRIP.bookings.map(b =>
+    `<div class="card bk"><b>${b.label}</b><p>${b.details.split(" | ").join("<br>")}</p></div>`).join("");
+}
+function renderPacking(){
+  const n = TRIP.packing.length, done = TRIP.packing.filter(p => packed[p]).length;
+  $("#pack").innerHTML = `<div class="card"><div class="meta">${done} of ${n} packed</div>
+    <div class="bar"><i style="width:${done/n*100}%"></i></div>` +
+    TRIP.packing.map((p,i) => `<label class="act ${packed[p]?"done":""}"><input type="checkbox" data-p="${i}" ${packed[p]?"checked":""}><div class="n"><b>${p}</b></div></label>`).join("") + "</div>";
+  document.querySelectorAll("#pack input").forEach(c => c.onchange = () => {
+    packed[TRIP.packing[c.dataset.p]] = c.checked; store.set("packed", packed); renderPacking();
+  });
+}
+function renderTools(){
+  const r = TRIP.jpyPerMyr;
+  $("#tools").innerHTML = `<div class="card tool"><h3>Money converter</h3>
+    <p class="meta" style="padding:0 0 10px">Rate: RM 1 = ¥${r} (edit jpyPerMyr in trip.json)</p>
+    <div class="row"><input type="number" id="jpy" placeholder="Yen"><input type="number" id="myr" placeholder="RM"></div></div>`;
+  $("#jpy").oninput = e => $("#myr").value = e.target.value ? (e.target.value / r).toFixed(2) : "";
+  $("#myr").oninput = e => $("#jpy").value = e.target.value ? Math.round(e.target.value * r) : "";
+}
+function countdown(){
+  const diff = new Date(TRIP.departureDate + "T00:20:00+08:00") - Date.now();
+  if (diff <= 0){ $("#cd").innerHTML = "<p>Trip is on! 🎌</p>"; return; }
+  const v = [["Days",864e5],["Hrs",36e5],["Min",6e4],["Sec",1e3]];
+  $("#cd").innerHTML = v.map(([l,m]) => `<div><b>${String(Math.floor(diff/m) % (l==="Days"?1e5:l==="Hrs"?24:60)).padStart(2,"0")}</b><span>${l}</span></div>`).join("");
+}
+document.querySelectorAll("nav button").forEach(b => b.onclick = () => {
+  document.querySelectorAll("nav button,section").forEach(e => e.classList.remove("on"));
+  b.classList.add("on"); $("#"+b.dataset.s).classList.add("on"); scrollTo(0,0);
+});
+</script>
+</body>
+</html>
